@@ -3,17 +3,17 @@
 from flask import Blueprint, render_template
 from flask import current_app as app
 
-dashboard = Blueprint('dashboard', __name__,
+home_page = Blueprint('home_page', __name__,
                       template_folder='templates', static_folder='static')
 
 
-@dashboard.route('/home')
-def home_page():
+@home_page.route('/')
+def index():
+    """ loading D3.js data page""" 
+    return render_template('index.html') 
+
+
+@home_page.route('/home')
+def main_page():
     """Loading the home page"""
     return render_template('home.html')
-
-@dashboard.route('/dashboard')
-def data_visualize(): 
-    """ Loading the dashboard """ 
-    from . import views 
-    views.dashborad

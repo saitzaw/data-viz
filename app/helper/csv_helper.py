@@ -15,11 +15,12 @@ class Read_CSV:
         self.file_name = file_name
         self.file_path = file_path 
 
-    @staticmethod
-    def _file(self):
-        csv_file_path = '/'.join(self.file_path, self.file_name)
-        _csv_df = pd.read_csv(csv_file_path).drop('Open',axis=1)
+    @classmethod
+    def _file(cls, file_name, file_path):
+        path = '/'
+        _file_path = path.join([file_path, file_name])
+        _csv_df = pd.read_csv(file_path).drop('Open',axis=1)
         chart_data = _csv_df.to_dict(orient='records')
         chart_data = json.dumps(chart_data, indent=2)
         data = {'chart_data': chart_data}
-        return data 
+        return cls(data)  

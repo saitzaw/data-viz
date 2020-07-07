@@ -1,7 +1,4 @@
 """ 
-* converter for spss and excel file 
-* dependencies 
-* pyreadstat (spss file)
 * openpyxl (excel)
 """
 import json 
@@ -9,8 +6,12 @@ import pandas as pd
 import pyreadstat
 from openpyxl import load_workbook
 
+"""
+only for CSV file 
+""" 
+class Read:
 
-class Read_CSV:
+    """ If the parameters are missing, use the default value """
     def __init__(self, file_name="data.csv", file_path="app/data"):
         self.file_name = file_name
         self.file_path = file_path 

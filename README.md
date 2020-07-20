@@ -1,5 +1,5 @@
 # data-viz
-data visualization with flask and dash
+data visualization with dash 
 
 # requirement 
 
@@ -24,6 +24,7 @@ and visualize the data in tables and charts.
 # Feature 
 
 - predict the data (using Linear Regression Method)
+- report
 - correlation 
 - data query 
 - data viz 

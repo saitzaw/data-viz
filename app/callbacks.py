@@ -2,20 +2,6 @@ from dash.dependencies import Output, Input
 import pandas as pd 
 import plotly.express as px
 
-# def register_callbacks(app):
-#     """
-#         args: 
-#             param (obj): app 
-#         return: 
-#             render layout 
-#     """ 
-#     @app.callback(
-#         Output('output', 'children'), 
-#         [Input('btn', 'n_clicks')]
-#         )
-#     def on_click(n_clicks):
-#         return 'Clicked {} times'.format(n_clicks)
-
 def register_callbacks(app,df): 
     @app.callback(
         Output('indicator-graphic', 'figure'),

@@ -1,37 +1,10 @@
-# data-viz
-data visualization with dash 
+# info
+- This file the customize version of dash-financial-report 
 
-# requirement 
+# run in development server 
+- GNU/Linux 
+- source env/bin/activate 
+- python app.py
 
-- python 3.8.3
-- dash 
-- plotly 
-
-# workflow 
-
-It reads data from 
-
-- SQL (MySQL, PostgreSQl)
-- NoSQL (mongoDB)
-- Excel 
-- CSV 
-- txt 
-- Json 
-- yaml 
-
-and visualize the data in tables and charts. 
-
-# Feature 
-
-- predict the data (using Linear Regression Method)
-- report
-- correlation 
-- data query 
-- data viz 
-
-# Note 
-this project test only on Linux machine ... 
-
- 
-
-
+# production 
+- use wsgi socket 

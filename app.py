@@ -1,17 +1,27 @@
+# -*- coding: utf-8 -*-
 import dash
-from app.layouts.layout import layout
-from app.callbacks import register_callbacks
-import pandas as pd 
+import dash_core_components as dcc
+import dash_html_components as html
+from dash.dependencies import Input, Output
+from pages import (
+    overview
+)
 
-external_stylesheet = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-app = dash.Dash(__name__,external_stylesheets=external_stylesheet)
-df = pd.read_csv('https://plotly.github.io/datasets/country_indicators.csv')
-available_indicators = df['Indicator Name'].unique()
-app.layout = layout(available_indicators,df)
-register_callbacks(app,df)
+app = dash.Dash(
+    __name__, meta_tags=[{"name": "viewport", "content": "width=device-width"}]
+)
+server = app.server
 
-if __name__=='__main__': 
-    """ 
-    run the flask server 
-    """ 
+# Describe the layout/ UI of the app
+app.layout = html.Div(
+    [dcc.Location(id="url", refresh=False), html.Div(id="page-content")]
+)
+
+# Update page
+@app.callback(Output("page-content", "children"), [Input("url", "pathname")])
+def display_page(pathname):
+    return overview.create_layout(app)
+
+
+if __name__ == "__main__":
     app.run_server(debug=True)
